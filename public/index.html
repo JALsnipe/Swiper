@@ -8,10 +8,15 @@
   <button onclick="makeSmall()">Small</button>
   <button onclick="makeNormal()">Normal</button>
   <button onclick="mute()">Mute</button>
-  <button onclick="unmute()">Unute</button>
+  <!-- <button onclick="unmute()">Unute</button> -->
+  <button onclick="halfSpeed()">Half Speed</button>
+  <button onclick="normalSpeed()">Normal Speed</button>
+  <button onclick="doubleSpeed()">Double Speed</button>
+  <button onclick="ffTenSec()">FF 10 sec</button>
+  <button onclick="rewTenSec()">REW 10 sec</button>
   <br> 
   <video id="video1" width="420">
-    <source src="reruns.mp4" type="video/mp4">
+    <source src="police.mp4" type="video/mp4">
     <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
     Your browser does not support HTML5 video.
   </video>
@@ -30,28 +35,51 @@ else
 
 function makeBig()
 { 
-myVideo.width=560; 
+  myVideo.width=560; 
 } 
 
 function makeSmall()
 { 
-myVideo.width=320; 
+  myVideo.width=320; 
 } 
 
 function makeNormal()
 { 
-myVideo.width=420; 
+  myVideo.width=420; 
 } 
 
 function mute()
 { 
-myVideo.muted=true;
+  if(myVideo.muted)
+    myVideo.muted=false;
+  else
+    myVideo.muted=true;
+}
+
+function halfSpeed()
+{ 
+  myVideo.playbackRate=0.5; 
 } 
 
-function unmute()
+function normalSpeed()
 { 
-myVideo.muted=false; 
+  myVideo.playbackRate=1.0; 
 } 
+
+function doubleSpeed()
+{ 
+  myVideo.playbackRate=2.0; 
+} 
+// This is not working
+function ffTenSec()
+{ 
+  myVideo.setTime(10);
+} 
+
+function rewTenSec()
+{
+  myVideo.setTime(-10);
+}
 
 </script> 
 
