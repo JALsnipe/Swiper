@@ -8,6 +8,9 @@ Assignment 3: A Gestural Video Player
 
 Swiper - A Gesture-Controlled Video Player
 
+This program uses the $1 Unistroke Recognizer:
+http://depts.washington.edu/aimgroup/proj/dollar/
+
 NOTES:
 Just messing around with the HTML 5 video API currently.
 Create a separate canvas for gestures or make gestures work on top of video?
