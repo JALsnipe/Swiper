@@ -93,6 +93,11 @@
           // var result = _r.Recognize(_points, document.getElementById('useProtractor').checked);
           var result = _r.Recognize(_points);
           drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
+          // TEST!!
+          if(result.Name == "check")
+          {
+            playPause();
+          }
         }
         else // fewer than 10 points were inputted
         {
@@ -172,8 +177,8 @@
   <button onclick="rewTenSec()">REW 10 sec</button>
   <br> 
   <video id="video1" width="320" height="240">
-    <source src="police.mp4" type="video/mp4">
-    <!-- <source src="reruns.mp4" type="video/mp4"> -->
+    <!-- <source src="police.mp4" type="video/mp4"> -->
+    <source src="reruns.mp4" type="video/mp4">
     <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
     Your browser does not support HTML5 video.
   </video>
