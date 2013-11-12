@@ -19,6 +19,36 @@ Add OGG and FLV video?
 Design decisions?
 Actually implement gestures/gesture action handler.
 
+Gesture action handler is actually really easy:
+in mouseUpEvent(x, y)
+var result = _r.Recognize(_points);
+result.Name is going to be the name of our custom gesture hardcoded into
+dollar.js if there is a match.
+
+prototype:
+if(result.Name == [custom gesture])
+{
+	doFunction(); // written for the buttons in my original html file
+}
+
+ex:
+if(result.Name == "check")
+{
+  playPause();
+}
+
+fucking brilliant.
+
+Design decisions:
+Probably a good idea to make the canvas on top of the video pane.
+Why?  Avoid confusion.  Multiple windows could cause confusion for the user.
+Need frontend w/ Bootstrap?  Make it look nice.
+Justify EVERYTHING.
+new gestures?
+
+
+JS crap:
+
     var str = "new Unistroke(" + "custom-1" + ", new Array("
     var p = _r.Unistrokes[16].Points;
     for ( var i = 0; i < p.length; i++) {
