@@ -98,6 +98,21 @@
           {
             playPause();
           }
+
+          if(result.Name == "delete")
+          {
+            mute();
+          }
+
+          if(result.Name == 'caret')
+          {
+            volUp();
+          }
+
+          if(result.Name == 'v')
+          {
+            volDown();
+          }
         }
         else // fewer than 10 points were inputted
         {
@@ -175,6 +190,8 @@
   <button onclick="increaseSpeed()">Increase Speed</button>
   <button onclick="ffTenSec()">FF 10 sec</button>
   <button onclick="rewTenSec()">REW 10 sec</button>
+  <button onclick="volUp()">Volume +0.1</button>
+  <button onclick="volDown()">Volume -0.1</button>
   <br> 
   <video id="video1" width="320" height="240">
     <!-- <source src="police.mp4" type="video/mp4"> -->
@@ -190,6 +207,31 @@
                   oncontextmenu="return false;">
                 <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
               </canvas>
+  <img src="unistrokes.gif">
+  <p>
+    Anything going wrong?  Check the JavaScript console.
+  </p>
+
+  <p>
+    Please note that this is still in alpha...
+  </p>
+
+  <p>
+    Current gestures supported:
+
+    "check" = play/pause
+    "delete" = mute/unmute
+    "carrot" = volume up
+    "v" = volume down
+  </p>
+
+  <p>
+    The buttons up top are for debugging.  Not all gestures are supported yet.
+  </p>
+
+  <p>
+    Reruns suck but there's no escape.  99's gonna be a party, hang out...
+  </p>
 
 </div> 
 
@@ -262,6 +304,32 @@ function ffTenSec()
 function rewTenSec()
 {
   myVideo.currentTime-=10;
+}
+
+function volUp()
+{
+  if(myVideo.volume == 1.0)
+  {
+    console.log("Volume already at max value! (1.0)")
+  } else
+  {
+  myVideo.volume+=0.1;
+  console.log("myVideo.volume+=0.1");
+  console.log("curent volume: " + myVideo.volume);
+  }
+}
+
+function volDown()
+{
+  if(myVideo.volume < 0.1)
+  {
+    console.log("Volume already at min value! (0.0)")
+  } else
+  {
+  myVideo.volume-=0.1;
+  console.log("myVideo.volume-=0.1");
+  console.log("curent volume: " + myVideo.volume);
+  }
 }
 
 </script> 

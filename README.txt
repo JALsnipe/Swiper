@@ -46,8 +46,31 @@ Need frontend w/ Bootstrap?  Make it look nice.
 Justify EVERYTHING.
 new gestures?
 
+Current gestures:
+http://depts.washington.edu/aimgroup/proj/dollar/unistrokes.gif
+
+"check" = play/pause
+"delete" = mute/unmute
+"carrot" = volume up
+"v" = volume down
+
 
 JS crap:
+
+---Good Function---
+    var str = "new Unistroke(" + name + ", new Array("
+    var p = _r.Unistrokes[16].Points;
+    for ( var i = 0; i < p.length; i++) {
+      var temp;
+      if (i < p.length - 1) {
+        temp = "new Point(" + parseInt(p[i].X) + ", " + parseInt(p[i].Y) + "), ";
+      } else {
+        temp = "new Point(" + parseInt(p[i].X) + ", " + parseInt(p[i].Y) + "))";
+      }
+      str = str + temp;
+    }
+    str = str + ");";
+---Good Function---
 
     var str = "new Unistroke(" + "custom-1" + ", new Array("
     var p = _r.Unistrokes[16].Points;
