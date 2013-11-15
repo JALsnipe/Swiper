@@ -1,6 +1,24 @@
 <!DOCTYPE html> 
 <html> 
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Swiper</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Used FontAwesome for my icons. -->
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Scripts -->
+  <!-- js imports -->
+  <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- // <script src="js/main.js"></script> -->
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   <script type="text/javascript" src="js/canvas.text.js"></script>
   <script type="text/javascript" src="js/gentilis-normal-normal.js"></script>
   <script type="text/javascript" src="js/dollar.js"></script>
@@ -176,24 +194,35 @@
 </head>
 <body onload="onLoadEvent()">
 
-<div style="text-align:center"> 
-  <button onclick="playPause()">Play/Pause</button> 
-  <button onclick="increaseWidth()">Increase Width (+10px)</button>
-  <button onclick="decreaseWidth()">Decrease Width (-10px)</button>
-  <button onclick="makeNormal()">Revert to Normal Size</button>
-  <button onclick="increaseHeight()">Increase Height (+10px)</button>
-  <button onclick="decreaseHeight()">Decrease Height (-10px)</button>
-  <button onclick="mute()">Mute/Unmute</button>
-  <!-- <button onclick="unmute()">Unute</button> -->
-  <button onclick="decreaseSpeed()">Decrease Speed</button>
-  <button onclick="normalSpeed()">Normal Speed</button>
-  <button onclick="increaseSpeed()">Increase Speed</button>
-  <button onclick="ffTenSec()">FF 10 sec</button>
-  <button onclick="rewTenSec()">REW 10 sec</button>
-  <button onclick="volUp()">Volume +0.1</button>
-  <button onclick="volDown()">Volume -0.1</button>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" rel="home" href="#" title="Swiper"><img style="max-width:50px; margin-top: -7px;" src="images/swiper-thumb.jpg"></a>
+</div>
+      <!-- <a class="navbar-brand" href="#">Swiper</a> -->
+    </div>
+  </nav>
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>
+        Swiper
+      </h1>
+      <p>
+        No Typing, Just Swiping
+      </p>
+    </div>
+  </div>
+
+<div class="main"> 
   <br> 
-  <video id="video1" width="320" height="240">
+  <!-- <video id="video1" width="320" height="240"> -->
+    <video id="video1" width="320">
     <!-- <source src="police.mp4" type="video/mp4"> -->
     <source src="reruns.mp4" type="video/mp4">
     <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
@@ -208,6 +237,24 @@
                 <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
               </canvas>
   <img src="unistrokes.gif">
+  <h1>DEBUG</h1>
+  <p>
+    <button onclick="playPause()">Play/Pause</button> 
+    <button onclick="increaseWidth()">Increase Width (+10px)</button>
+    <button onclick="decreaseWidth()">Decrease Width (-10px)</button>
+    <button onclick="makeNormal()">Revert to Normal Size</button>
+    <button onclick="increaseHeight()">Increase Height (+10px)</button>
+    <button onclick="decreaseHeight()">Decrease Height (-10px)</button>
+    <button onclick="mute()">Mute/Unmute</button>
+    <!-- <button onclick="unmute()">Unute</button> -->
+    <button onclick="decreaseSpeed()">Decrease Speed</button>
+    <button onclick="normalSpeed()">Normal Speed</button>
+    <button onclick="increaseSpeed()">Increase Speed</button>
+    <button onclick="ffTenSec()">FF 10 sec</button>
+    <button onclick="rewTenSec()">REW 10 sec</button>
+    <button onclick="volUp()">Volume +0.1</button>
+    <button onclick="volDown()">Volume -0.1</button>
+  </p>
   <p>
     Anything going wrong?  Check the JavaScript console.
   </p>
@@ -259,13 +306,14 @@ function decreaseWidth()
 function makeNormal()
 { 
   myVideo.width=320;
-  myVideo.height=240;
+  // myVideo.height=240;
   // console.log("reverting to 320px x 240px")
 } 
 
 function increaseHeight()
 { 
   myVideo.height+=10; 
+  // myVideo.width=auto;
 } 
 
 function decreaseHeight()

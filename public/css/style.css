@@ -1,0 +1,78 @@
+/* My style.css */
+
+.navbar-default .navbar-brand {
+	color: #efd5fa;
+	position: absolute;
+	left: 50%;
+	height: 60px;
+	width: 120px;
+	margin-left: -60px;
+}
+
+.navbar-inner {
+    background-color: red;
+    background-image: linear-gradient(to bottom, blue, green);
+    background-repeat: repeat-x;
+    border: 1px solid yellow;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ul.nav a:hover { color: #f1c40f !important; }
+
+/* Page headers */
+.bs-header {
+  /*padding: 30px 15px 40px;  side padding builds on .container 15px, so 30px */
+  font-size: 16px;
+  text-align: center;
+  /*text-shadow: 0 1px 0 rgba(0,0,0,.15);*/
+}
+.bs-header h1 {
+  /*color: #fff;*/
+}
+.bs-header p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+.bs-header .container {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .bs-header {
+    font-size: 21px;
+    text-align: left;
+  }
+  .bs-header h1 {
+    font-size: 60px;
+    line-height: 1;
+  }
+}
+
+.main {
+	max-width: 1500px;
+	margin: 0 auto;
+	padding-top: 0em;
+}
+
+.icon-location-arrow {
+	padding-right: 0.25em;
+}
+
+.icon-calendar {
+	padding-right: 0.1em;
+}
+
+.input-group {
+	margin-bottom: 1em;
+}
+
+.btn.btn-primary {
+	margin-top: 1em;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 1em;
+}
