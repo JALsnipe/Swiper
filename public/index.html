@@ -203,7 +203,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" rel="home" href="#" title="Swiper"><img style="max-width:50px; margin-top: -7px;" src="images/swiper-thumb.jpg"></a>
+        <a class="navbar-brand" rel="home" href="#" title="Swiper"><img style="max-width:50px; margin-top: -7px;" src="images/swiper-thumb.jpg">
+        </a>
 </div>
       <!-- <a class="navbar-brand" href="#">Swiper</a> -->
     </div>
@@ -220,65 +221,72 @@
   </div>
 
 <div class="main"> 
-  <br> 
+  <div class="video">
   <!-- <video id="video1" width="320" height="240"> -->
     <video id="video1" width="320">
     <!-- <source src="police.mp4" type="video/mp4"> -->
     <source src="reruns.mp4" type="video/mp4">
     <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+    <!-- ogg movie support required? -->
     Your browser does not support HTML5 video.
   </video>
+  <div class="canvas">
+    <!-- <canvas id="myCanvas" width="420" height="400" style="background-color:#dddddd" -->
+    <canvas id="myCanvas" width="320" height="240"
+                    onmousedown="mouseDownEvent(event.clientX, event.clientY)"
+                    onmousemove="mouseMoveEvent(event.clientX, event.clientY)"
+                    onmouseup="mouseUpEvent(event.clientX, event.clientY)"
+                    oncontextmenu="return false;">
+                  <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
+                </canvas>
+  </div>
+</div>
 
-  <canvas id="myCanvas" width="420" height="400" style="background-color:#dddddd"
-                  onmousedown="mouseDownEvent(event.clientX, event.clientY)"
-                  onmousemove="mouseMoveEvent(event.clientX, event.clientY)"
-                  onmouseup="mouseUpEvent(event.clientX, event.clientY)"
-                  oncontextmenu="return false;">
-                <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
-              </canvas>
-  <img src="unistrokes.gif">
-  <h1>DEBUG</h1>
-  <p>
-    <button onclick="playPause()">Play/Pause</button> 
-    <button onclick="increaseWidth()">Increase Width (+10px)</button>
-    <button onclick="decreaseWidth()">Decrease Width (-10px)</button>
-    <button onclick="makeNormal()">Revert to Normal Size</button>
-    <button onclick="increaseHeight()">Increase Height (+10px)</button>
-    <button onclick="decreaseHeight()">Decrease Height (-10px)</button>
-    <button onclick="mute()">Mute/Unmute</button>
-    <!-- <button onclick="unmute()">Unute</button> -->
-    <button onclick="decreaseSpeed()">Decrease Speed</button>
-    <button onclick="normalSpeed()">Normal Speed</button>
-    <button onclick="increaseSpeed()">Increase Speed</button>
-    <button onclick="ffTenSec()">FF 10 sec</button>
-    <button onclick="rewTenSec()">REW 10 sec</button>
-    <button onclick="volUp()">Volume +0.1</button>
-    <button onclick="volDown()">Volume -0.1</button>
-  </p>
-  <p>
-    Anything going wrong?  Check the JavaScript console.
-  </p>
+  <div class="debug">
+    <h1>DEBUG</h1>
+    <img src="unistrokes.gif">
+    <p>
+      <button onclick="playPause()">Play/Pause</button> 
+      <button onclick="increaseWidth()">Increase Width (+10px)</button>
+      <button onclick="decreaseWidth()">Decrease Width (-10px)</button>
+      <button onclick="makeNormal()">Revert to Normal Size</button>
+      <button onclick="increaseHeight()">Increase Height (+10px)</button>
+      <button onclick="decreaseHeight()">Decrease Height (-10px)</button>
+      <button onclick="mute()">Mute/Unmute</button>
+      <!-- <button onclick="unmute()">Unute</button> -->
+      <button onclick="decreaseSpeed()">Decrease Speed</button>
+      <button onclick="normalSpeed()">Normal Speed</button>
+      <button onclick="increaseSpeed()">Increase Speed</button>
+      <button onclick="ffTenSec()">FF 10 sec</button>
+      <button onclick="rewTenSec()">REW 10 sec</button>
+      <button onclick="volUp()">Volume +0.1</button>
+      <button onclick="volDown()">Volume -0.1</button>
+    </p>
+    <p>
+      Anything going wrong?  Check the JavaScript console.
+    </p>
 
-  <p>
-    Please note that this is still in alpha...
-  </p>
+    <p>
+      Please note that this is still in alpha...
+    </p>
 
-  <p>
-    Current gestures supported:
+    <p>
+      Current gestures supported:
 
-    "check" = play/pause
-    "delete" = mute/unmute
-    "carrot" = volume up
-    "v" = volume down
-  </p>
+      "check" = play/pause
+      "delete" = mute/unmute
+      "carrot" = volume up
+      "v" = volume down
+    </p>
 
-  <p>
-    The buttons up top are for debugging.  Not all gestures are supported yet.
-  </p>
+    <p>
+      The buttons up top are for debugging.  Not all gestures are supported yet.
+    </p>
 
-  <p>
-    Reruns suck but there's no escape.  99's gonna be a party, hang out...
-  </p>
+    <p>
+      Reruns suck but there's no escape.  99's gonna be a party, hang out...
+    </p>
+  </div>
 
 </div> 
 
