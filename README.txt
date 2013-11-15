@@ -7,6 +7,7 @@ jal2238@columbia.edu
 Assignment 3: A Gestural Video Player
 
 Swiper - A Gesture-Controlled Video Player
+"No Typing, Just Swiping"
 
 This program uses the $1 Unistroke Recognizer:
 http://depts.washington.edu/aimgroup/proj/dollar/
