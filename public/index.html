@@ -117,7 +117,7 @@
             playPause();
           }
 
-          if(result.Name == "delete")
+          if(result.Name == "circle")
           {
             mute();
           }
@@ -130,6 +130,10 @@
           if(result.Name == 'v')
           {
             volDown();
+          }
+
+          if(result.Name == "rectangle") {
+            resize()
           }
         }
         else // fewer than 10 points were inputted
@@ -385,6 +389,16 @@ function volDown()
   myVideo.volume-=0.1;
   console.log("myVideo.volume-=0.1");
   console.log("curent volume: " + myVideo.volume);
+  }
+}
+
+function resize()
+{
+  if(myVideo.width == 320) {
+    myVideo.width = 480;
+  } else
+  {
+    myVideo.width = 320;
   }
 }
 
