@@ -96,7 +96,7 @@
         x -= _rc.x;
         y -= _rc.y - getScrollY();
         _points[_points.length] = new Point(x, y); // append
-        drawConnectedPoint(_points.length - 2, _points.length - 1);
+        // drawConnectedPoint(_points.length - 2, _points.length - 1);
       }
     }
     function mouseUpEvent(x, y)
@@ -110,6 +110,9 @@
         {
           // var result = _r.Recognize(_points, document.getElementById('useProtractor').checked);
           var result = _r.Recognize(_points);
+          if(result.Name == "arrow") {
+            result.Name = "invalid gesture"
+          }
           drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
           // TEST!!
           if(result.Name == "check")
@@ -135,6 +138,15 @@
           if(result.Name == "rectangle") {
             resize()
           }
+
+          if(result.Name == "REW") {
+            rewTenSec();
+          }
+
+          if(result.Name == "FF") {
+            ffTenSec();
+          }
+
         }
         else // fewer than 10 points were inputted
         {
@@ -144,11 +156,13 @@
     }
     function drawText(str)
     {
+      //Color top (yellow box)
       _g.fillStyle = "rgb(255,255,136)";
       _g.fillRect(0, 0, _rc.width, 20);
       _g.fillStyle = "rgb(0,0,255)";
       _g.fillText(str, 1, 14);
     }
+    //This is where the gesture trail is generated
     function drawConnectedPoint(from, to)
     {
       _g.beginPath();
@@ -236,7 +250,7 @@
   </video>
   <div class="canvas">
     <!-- <canvas id="myCanvas" width="420" height="400" style="background-color:#dddddd" -->
-    <canvas id="myCanvas" width="320" height="240"
+    <canvas id="myCanvas" width="480" height="360"
                     onmousedown="mouseDownEvent(event.clientX, event.clientY)"
                     onmousemove="mouseMoveEvent(event.clientX, event.clientY)"
                     onmouseup="mouseUpEvent(event.clientX, event.clientY)"
