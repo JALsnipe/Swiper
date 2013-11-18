@@ -17,11 +17,11 @@
   <!-- js imports -->
   <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
-  <!-- // <script src="js/main.js"></script> -->
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   <script type="text/javascript" src="js/canvas.text.js"></script>
   <script type="text/javascript" src="js/gentilis-normal-normal.js"></script>
   <script type="text/javascript" src="js/dollar.js"></script>
+  <script src="js/main.js"></script>
   <script type="text/javascript"><!--
       //
     // Startup
@@ -39,7 +39,7 @@
       _g.lineWidth = 3;
       _g.font = "16px Gentilis";
       _rc = getCanvasRect(canvas); // canvas rect on page
-      _g.fillStyle = "rgb(255,255,136)";
+      _g.fillStyle = "rgb(255,255,255)";
       _g.fillRect(0, 0, _rc.width, 20);
 
       _isDown = false;
@@ -87,7 +87,7 @@
       _points.length = 1; // clear
       _points[0] = new Point(x, y);
       drawText("Recording unistroke...");
-      _g.fillRect(x - 4, y - 3, 9, 9);
+      // _g.fillRect(x - 4, y - 3, 9, 9);
     }
     function mouseMoveEvent(x, y)
     {
@@ -110,27 +110,107 @@
         {
           // var result = _r.Recognize(_points, document.getElementById('useProtractor').checked);
           var result = _r.Recognize(_points);
-          if(result.Name == "arrow") {
+          // Unused gestures
+          // I need to inlcude them for the recognizer to work properly, but
+          // I alert the user that they aren't valid gestures supported by my
+          // program.
+          if(result.Name == "triangle"
+            || result.Name == "x"
+            || result.Name == "zig-zag"
+            || result.Name == "arrow"
+            || result.Name == "left square bracket"
+            || result.Name == "right square bracket"
+            || result.Name == "delete"
+            || result.Name == "left curly brace"
+            || result.Name == "right curly brace"
+            || result.Name == "star"
+            || result.Name == "pigtail") {
             result.Name = "invalid gesture"
           }
+
+          // Checking if video is playing or paused
+          if(result.Name == "check") {
+            if (myVideo.paused) {
+              result.Name = "Playing";
+            }
+            else {
+              result.Name = "Paused";
+            }
+          }
+
+          // Muted vs Unmuted
+          if(result.Name == "circle") {
+            if (myVideo.muted) {
+              result.Name = "Unmuted";
+            }
+            else {
+              result.Name = "Muted";
+            }
+          }
+
+          // Volume Up
+          if(result.Name == "caret") {
+            if(myVideo.volume == 1.0)
+            {
+              result.Name = "Max Volume"
+            }
+            else
+            {
+              result.Name = "Vol Up"
+            }
+          }
+          // Volume Down
+          if(result.Name == "v") {
+            if(myVideo.volume < 0.1)
+            {
+              result.Name = "Min Volume"
+            }
+            else
+            {
+              result.Name = "Vol Down"
+            }
+          }
+
+          // Increase Playback Speed
+          if(result.Name == "UP") {
+            result.Name = "Speed Up"
+          }
+
+          // Decrease Playback Speed
+          if(result.Name == "DN") {
+            result.Name = "Speed Down"
+          }
+
+          // Fast Forward
+          if(result.Name == "FF") {
+            result.Name = "FF 10 sec"
+          }
+
+          // Rewind
+          if(result.Name == "REW") {
+            result.Name = "REW 10 sec"
+          }
+
           drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
           // TEST!!
-          if(result.Name == "check")
+          if(result.Name == "Playing"
+            || result.Name == "Paused")
           {
             playPause();
           }
 
-          if(result.Name == "circle")
+          if(result.Name == "Muted"
+            || result.Name == "Unmuted")
           {
             mute();
           }
 
-          if(result.Name == 'caret')
+          if(result.Name == 'Vol Up')
           {
             volUp();
           }
 
-          if(result.Name == 'v')
+          if(result.Name == 'Vol Down')
           {
             volDown();
           }
@@ -139,12 +219,20 @@
             resize()
           }
 
-          if(result.Name == "REW") {
+          if(result.Name == "REW 10 sec") {
             rewTenSec();
           }
 
-          if(result.Name == "FF") {
+          if(result.Name == "FF 10 sec") {
             ffTenSec();
+          }
+
+          if(result.Name == "Speed Up") {
+            increaseSpeed();
+          }
+
+          if(result.Name == "Speed Down") {
+            decreaseSpeed();
           }
 
         }
@@ -157,7 +245,8 @@
     function drawText(str)
     {
       //Color top (yellow box)
-      _g.fillStyle = "rgb(255,255,136)";
+      //now white
+      _g.fillStyle = "rgb(255,255,255)";
       _g.fillRect(0, 0, _rc.width, 20);
       _g.fillStyle = "rgb(0,0,255)";
       _g.fillText(str, 1, 14);
@@ -207,12 +296,17 @@
       var num = _r.DeleteUserGestures(); // deletes any user-defined unistrokes
       alert("All user-defined gestures have been deleted. Only the 1 predefined gesture remains for each of the " + num + " types.");
     }
+
+    // Getting the current and total time attributes
+    // moved to main.js
+    // End
+
   // -->
   </script>
 </head>
 <body onload="onLoadEvent()">
 
-  <nav class="navbar navbar-default" role="navigation">
+  <!-- <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -225,8 +319,34 @@
         </a>
 </div>
       <!-- <a class="navbar-brand" href="#">Swiper</a> -->
+
+  <!-- <div class="bs-header" id="content">
+    <div class="container">
+      <h1>
+        Swiper
+      </h1>
+      <p>
+        No Typing, Just Swiping
+      </p>
     </div>
-  </nav>
+  </div> -->
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" rel="home" href="#" title="Swiper"><img style="max-width:50px; margin-top: -7px;" src="images/swiper-thumb.jpg">
+          </a>
+  </div>
+        <!-- <a class="navbar-brand" href="#">Swiper</a> -->
+      </div>
+    </nav>
+  <div class="main">
   <div class="bs-header" id="content">
     <div class="container">
       <h1>
@@ -237,13 +357,11 @@
       </p>
     </div>
   </div>
-
-<div class="main"> 
   <div class="video">
   <!-- <video id="video1" width="320" height="240"> -->
     <video id="video1" width="320">
-    <!-- <source src="police.mp4" type="video/mp4"> -->
-    <source src="reruns.mp4" type="video/mp4">
+    <source src="police.mp4" type="video/mp4">
+    <!-- <source src="reruns.mp4" type="video/mp4"> -->
     <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
     <!-- ogg movie support required? -->
     Your browser does not support HTML5 video.
@@ -258,11 +376,14 @@
                   <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
                 </canvas>
   </div>
+  <!-- Time attributes -->
+  <div>Current Time : <span  id="currentTime">0</span></div>
+  <div>Total Time : <span id="totalTime">0</span></div>
 </div>
 
   <div class="debug">
-    <h1>DEBUG</h1>
-    <img src="unistrokes.gif">
+    <h1>Gestures</h1>
+    <img src="gestures.png">
     <p>
       <button onclick="playPause()">Play/Pause</button> 
       <button onclick="increaseWidth()">Increase Width (+10px)</button>
@@ -414,6 +535,12 @@ function resize()
   {
     myVideo.width = 320;
   }
+}
+
+function getCurrentTime()
+{
+  var currentTime;
+  currentTime = myVideo.currentTime;
 }
 
 </script> 
