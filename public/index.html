@@ -15,9 +15,10 @@
 
   <!-- Scripts -->
   <!-- js imports -->
-  <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script>
+  <!-- <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script> -->
+  <script type="text/javascript" src="js/vendor/jquery-2.0.3.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
   <script type="text/javascript" src="js/canvas.text.js"></script>
   <script type="text/javascript" src="js/gentilis-normal-normal.js"></script>
   <script type="text/javascript" src="js/dollar.js"></script>
@@ -517,12 +518,12 @@ function volUp()
 {
   if(myVideo.volume == 1.0)
   {
-    console.log("Volume already at max value! (1.0)")
+    // console.log("Volume already at max value! (1.0)")
   } else
   {
   myVideo.volume+=0.1;
-  console.log("myVideo.volume+=0.1");
-  console.log("curent volume: " + myVideo.volume);
+  // console.log("myVideo.volume+=0.1");
+  // console.log("curent volume: " + myVideo.volume);
   }
 }
 
@@ -530,12 +531,12 @@ function volDown()
 {
   if(myVideo.volume < 0.1)
   {
-    console.log("Volume already at min value! (0.0)")
+    // console.log("Volume already at min value! (0.0)")
   } else
   {
   myVideo.volume-=0.1;
-  console.log("myVideo.volume-=0.1");
-  console.log("curent volume: " + myVideo.volume);
+  // console.log("myVideo.volume-=0.1");
+  // console.log("curent volume: " + myVideo.volume);
   }
 }
 
