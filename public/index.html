@@ -125,13 +125,13 @@
             || result.Name == "right curly brace"
             || result.Name == "star"
             || result.Name == "pigtail") {
-            result.Name = "invalid gesture"
+            result.Name = "Invalid Gesture"
           }
 
           // Checking if video is playing or paused
           if(result.Name == "check") {
             if (myVideo.paused) {
-              result.Name = "Playing";
+              result.Name = "Play";
             }
             else {
               result.Name = "Paused";
@@ -152,22 +152,22 @@
           if(result.Name == "caret") {
             if(myVideo.volume == 1.0)
             {
-              result.Name = "Max Volume"
+              result.Name = "Volume at 100%"
             }
             else
             {
-              result.Name = "Vol Up"
+              result.Name = "Volume Up"
             }
           }
           // Volume Down
           if(result.Name == "v") {
             if(myVideo.volume < 0.1)
             {
-              result.Name = "Min Volume"
+              result.Name = "Volume at 0%"
             }
             else
             {
-              result.Name = "Vol Down"
+              result.Name = "Volume Down"
             }
           }
 
@@ -191,9 +191,20 @@
             result.Name = "REW 10 sec"
           }
 
-          drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
+          // Resize
+          if(result.Name == "rectangle") {
+            if(myVideo.width == 320) {
+              result.Name = "Increased Video Size"
+            }
+            else {
+              result.Name = "Decreased Video Size"
+            };
+          }
+
+          // drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
+          drawText(result.Name);
           // TEST!!
-          if(result.Name == "Playing"
+          if(result.Name == "Play"
             || result.Name == "Paused")
           {
             playPause();
@@ -205,17 +216,18 @@
             mute();
           }
 
-          if(result.Name == 'Vol Up')
+          if(result.Name == 'Volume Up')
           {
             volUp();
           }
 
-          if(result.Name == 'Vol Down')
+          if(result.Name == 'Volume Down')
           {
             volDown();
           }
 
-          if(result.Name == "rectangle") {
+          if(result.Name == "Increased Video Size"
+            || result.Name == "Decreased Video Size") {
             resize()
           }
 
