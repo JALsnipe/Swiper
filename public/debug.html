@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Swiper</title>
+  <title>Swiper - Debug Mode</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
@@ -369,8 +369,51 @@
 </div>
 
   <div class="debug">
-    <h1>Gestures</h1>
+    <h1>Debug</h1>
     <img src="gestures.png">
+    <p>
+      <button onclick="playPause()">Play/Pause</button> 
+      <button onclick="increaseWidth()">Increase Width (+10px)</button>
+      <button onclick="decreaseWidth()">Decrease Width (-10px)</button>
+      <button onclick="makeNormal()">Revert to Normal Size</button>
+      <button onclick="increaseHeight()">Increase Height (+10px)</button>
+      <button onclick="decreaseHeight()">Decrease Height (-10px)</button>
+      <button onclick="mute()">Mute/Unmute</button>
+      <!-- <button onclick="unmute()">Unute</button> -->
+      <button onclick="decreaseSpeed()">Decrease Speed</button>
+      <button onclick="normalSpeed()">Normal Speed</button>
+      <button onclick="increaseSpeed()">Increase Speed</button>
+      <button onclick="ffTenSec()">FF 10 sec</button>
+      <button onclick="rewTenSec()">REW 10 sec</button>
+      <button onclick="volUp()">Volume +0.1</button>
+      <button onclick="volDown()">Volume -0.1</button>
+    </p>
+    <p>
+      Anything going wrong?  Check the JavaScript console.
+    </p>
+
+    <p>
+      Please note that this is still in alpha...
+    </p>
+
+    <p>
+      Current gestures supported:
+
+      "check" = play/pause
+      "delete" = mute/unmute
+      "carot" = volume up
+      "v" = volume down
+    </p>
+
+    <p>
+      The buttons up top are for debugging.  Not all gestures are supported yet.
+    </p>
+
+    <p>
+      Reruns suck but there's no escape.  99's gonna be a party, hang out...
+    </p>
+  </div>
+
 </div> 
 
 <script> 
