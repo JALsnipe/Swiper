@@ -1,0 +1,1547 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+
+xmlns:o="urn:schemas-microsoft-com:office:office"
+
+xmlns:w="urn:schemas-microsoft-com:office:word"
+
+xmlns="http://www.w3.org/TR/REC-html40">
+
+
+
+<head>
+
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+
+<meta name=ProgId content=Word.Document>
+
+<meta name=Generator content="Microsoft Word 11">
+
+<meta name=Originator content="Microsoft Word 11">
+
+<link rel=Edit-Time-Data href="assn3-08f_files/editdata.mso">
+
+<title>COMS W4170: User Interface Design&mdash;Fall 2013&mdash;Assignment #3</title>
+
+<!--[if gte mso 9]><xml>
+
+ <o:DocumentProperties>
+
+  <o:Author>Steve Feiner</o:Author>
+
+  <o:LastAuthor>Steve Feiner</o:LastAuthor>
+
+  <o:Revision>2</o:Revision>
+
+  <o:TotalTime>3</o:TotalTime>
+
+  <o:Created>2008-10-28T03:04:00Z</o:Created>
+
+  <o:LastSaved>2008-10-28T03:04:00Z</o:LastSaved>
+
+  <o:Pages>1</o:Pages>
+
+  <o:Words>1180</o:Words>
+
+  <o:Characters>6726</o:Characters>
+
+  <o:Company>Hewlett-Packard</o:Company>
+
+  <o:Lines>56</o:Lines>
+
+  <o:Paragraphs>15</o:Paragraphs>
+
+  <o:CharactersWithSpaces>7891</o:CharactersWithSpaces>
+
+  <o:Version>11.9999</o:Version>
+
+ </o:DocumentProperties>
+
+</xml><![endif]--><!--[if gte mso 9]><xml>
+
+ <w:WordDocument>
+
+  <w:SpellingState>Clean</w:SpellingState>
+
+  <w:GrammarState>Clean</w:GrammarState>
+
+  <w:TrackRevisions/>
+
+  <w:PunctuationKerning/>
+
+  <w:ValidateAgainstSchemas/>
+
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+
+  <w:Compatibility>
+
+   <w:BreakWrappedTables/>
+
+   <w:SnapToGridInCell/>
+
+   <w:WrapTextWithPunct/>
+
+   <w:UseAsianBreakRules/>
+
+   <w:DontGrowAutofit/>
+
+  </w:Compatibility>
+
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+
+ </w:WordDocument>
+
+</xml><![endif]--><!--[if gte mso 9]><xml>
+
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+
+ </w:LatentStyles>
+
+</xml><![endif]-->
+
+<style>
+
+<!--
+
+ /* Font Definitions */
+
+ @font-face
+
+	{font-family:Wingdings;
+
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+
+	mso-font-charset:2;
+
+	mso-generic-font-family:auto;
+
+	mso-font-pitch:variable;
+
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+
+@font-face
+
+	{font-family:Tahoma;
+
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+
+	mso-font-charset:0;
+
+	mso-generic-font-family:swiss;
+
+	mso-font-pitch:variable;
+
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+
+@font-face
+
+	{font-family:Calibri;
+
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+
+	mso-font-charset:0;
+
+	mso-generic-font-family:swiss;
+
+	mso-font-pitch:variable;
+
+	mso-font-signature:-1610611985 1073750139 0 0 159 0;}
+
+@font-face
+
+	{font-family:ArialYour;
+
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+
+	mso-font-alt:"Times New Roman";
+
+	mso-font-charset:0;
+
+	mso-generic-font-family:roman;
+
+	mso-font-format:other;
+
+	mso-font-pitch:auto;
+
+	mso-font-signature:0 0 0 0 0 0;}
+
+@font-face
+
+	{font-family:Wingdings-Regular;
+
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+
+	mso-font-charset:0;
+
+	mso-generic-font-family:auto;
+
+	mso-font-format:other;
+
+	mso-font-pitch:auto;
+
+	mso-font-signature:3 0 0 0 1 0;}
+
+ /* Style Definitions */
+
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+
+	{mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+h2
+
+	{mso-style-link:"Char Char1";
+
+	mso-margin-top-alt:auto;
+
+	margin-right:0in;
+
+	mso-margin-bottom-alt:auto;
+
+	margin-left:0in;
+
+	mso-pagination:widow-orphan;
+
+	mso-outline-level:2;
+
+	font-size:18pt;
+
+	font-family:"Times New Roman";
+
+	mso-fareast-font-family:"Times New Roman";
+
+	font-weight:bold}
+
+h3
+
+	{mso-style-link:"Char Char";
+
+	mso-margin-top-alt:auto;
+
+	margin-right:0in;
+
+	mso-margin-bottom-alt:auto;
+
+	margin-left:0in;
+
+	mso-pagination:widow-orphan;
+
+	mso-outline-level:3;
+
+	font-size:13.5pt;
+
+	font-family:"Times New Roman";
+
+	mso-fareast-font-family:"Times New Roman";
+
+	font-weight:bold}
+
+h4
+
+	{mso-style-next:Normal;
+
+	margin-top:12.0pt;
+
+	margin-right:0in;
+
+	margin-bottom:3.0pt;
+
+	margin-left:0in;
+
+	line-height:115%;
+
+	mso-pagination:widow-orphan;
+
+	page-break-after:avoid;
+
+	mso-outline-level:4;
+
+	font-size:14pt;
+
+	font-family:"Times New Roman";
+
+	mso-fareast-font-family:Calibri;
+
+	font-weight:bold;}
+
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+
+	{mso-style-noshow:yes;
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:115%;
+
+	mso-pagination:widow-orphan;
+
+	font-size:10.0pt;
+
+	font-family:Calibri;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+span.MsoCommentReference
+
+	{mso-style-noshow:yes;
+
+	mso-ansi-font-size:8.0pt;
+
+	mso-bidi-font-size:8.0pt;}
+
+a:link, span.MsoHyperlink
+
+	{color:blue;
+
+	text-decoration:underline;
+
+	text-underline:single;}
+
+a:visited, span.MsoHyperlinkFollowed
+
+	{color:purple;
+
+	text-decoration:underline;
+
+	text-underline:single;}
+
+p
+
+	{mso-style-noshow:yes;
+
+	mso-margin-top-alt:auto;
+
+	margin-right:0in;
+
+	mso-margin-bottom-alt:auto;
+
+	margin-left:0in;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12.0pt;
+
+	font-family:"Times New Roman";
+
+	mso-fareast-font-family:"Times New Roman";}
+
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+
+	{mso-style-noshow:yes;
+
+	mso-style-parent:"Comment Text";
+
+	mso-style-next:"Comment Text";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:115%;
+
+	mso-pagination:widow-orphan;
+
+	font-size:10.0pt;
+
+	font-family:Calibri;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";
+
+	font-weight:bold;}
+
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+
+	{mso-style-noshow:yes;
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:115%;
+
+	mso-pagination:widow-orphan;
+
+	font-size:8.0pt;
+
+	font-family:Tahoma;
+
+	mso-fareast-font-family:Calibri;}
+
+span.CharChar1
+
+	{mso-style-name:"Char Char1";
+
+	mso-style-locked:yes;
+
+	mso-style-link:"Heading 2";
+
+	mso-ansi-font-size:18.0pt;
+
+	mso-bidi-font-size:18.0pt;
+
+	font-family:"Times New Roman";
+
+	mso-ascii-font-family:"Times New Roman";
+
+	mso-fareast-font-family:"Times New Roman";
+
+	mso-hansi-font-family:"Times New Roman";
+
+	mso-bidi-font-family:"Times New Roman";
+
+	font-weight:bold}
+
+span.CharChar
+
+	{mso-style-name:"Char Char";
+
+	mso-style-locked:yes;
+
+	mso-style-link:"Heading 3";
+
+	mso-ansi-font-size:13.5pt;
+
+	mso-bidi-font-size:13.5pt;
+
+	font-family:"Times New Roman";
+
+	mso-ascii-font-family:"Times New Roman";
+
+	mso-fareast-font-family:"Times New Roman";
+
+	mso-hansi-font-family:"Times New Roman";
+
+	mso-bidi-font-family:"Times New Roman";
+
+	font-weight:bold}
+
+span.msoIns
+
+	{mso-style-type:export-only;
+
+	mso-style-name:"";
+
+	text-decoration:underline;
+
+	text-underline:single;
+
+	color:teal;}
+
+span.msoDel
+
+	{mso-style-type:export-only;
+
+	mso-style-name:"";
+
+	text-decoration:line-through;
+
+	color:red;}
+
+span.SpellE
+
+	{mso-style-name:"";
+
+	mso-spl-e:yes;}
+
+@page Section1
+
+	{size:8.5in 11.0in;
+
+	margin:1.0in 1.0in 1.0in 1.0in;
+
+	mso-header-margin:.5in;
+
+	mso-footer-margin:.5in;
+
+	mso-paper-source:0;}
+
+div.Section1
+
+	{page:Section1;}
+
+ /* List Definitions */
+
+ @list l0
+
+	{mso-list-id:-132;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:1508658448;}
+
+@list l0:level1
+
+	{mso-level-tab-stop:1.25in;
+
+	mso-level-number-position:left;
+
+	margin-left:1.25in;
+
+	text-indent:-.25in;}
+
+@list l1
+
+	{mso-list-id:-131;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:-1804198774;}
+
+@list l1:level1
+
+	{mso-level-tab-stop:1.0in;
+
+	mso-level-number-position:left;
+
+	margin-left:1.0in;
+
+	text-indent:-.25in;}
+
+@list l2
+
+	{mso-list-id:-130;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:-1063613086;}
+
+@list l2:level1
+
+	{mso-level-tab-stop:.75in;
+
+	mso-level-number-position:left;
+
+	margin-left:.75in;
+
+	text-indent:-.25in;}
+
+@list l3
+
+	{mso-list-id:-129;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:-2092764750;}
+
+@list l3:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l4
+
+	{mso-list-id:-128;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:373064466;}
+
+@list l4:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:1.25in;
+
+	mso-level-number-position:left;
+
+	margin-left:1.25in;
+
+	text-indent:-.25in;
+
+	font-family:Symbol;}
+
+@list l5
+
+	{mso-list-id:-127;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:1406575602;}
+
+@list l5:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:1.0in;
+
+	mso-level-number-position:left;
+
+	margin-left:1.0in;
+
+	text-indent:-.25in;
+
+	font-family:Symbol;}
+
+@list l6
+
+	{mso-list-id:-126;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:1462244470;}
+
+@list l6:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:.75in;
+
+	mso-level-number-position:left;
+
+	margin-left:.75in;
+
+	text-indent:-.25in;
+
+	font-family:Symbol;}
+
+@list l7
+
+	{mso-list-id:-125;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:1704749090;}
+
+@list l7:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;
+
+	font-family:Symbol;}
+
+@list l8
+
+	{mso-list-id:-120;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:-250191090;}
+
+@list l8:level1
+
+	{mso-level-tab-stop:.25in;
+
+	mso-level-number-position:left;
+
+	margin-left:.25in;
+
+	text-indent:-.25in;}
+
+@list l9
+
+	{mso-list-id:-119;
+
+	mso-list-type:simple;
+
+	mso-list-template-ids:936645844;}
+
+@list l9:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:.25in;
+
+	mso-level-number-position:left;
+
+	margin-left:.25in;
+
+	text-indent:-.25in;
+
+	font-family:Symbol;}
+
+@list l10
+
+	{mso-list-id:87653724;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:385395742 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l10:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l11
+
+	{mso-list-id:174736626;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:1488378710 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l11:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	margin-left:.75in;
+
+	text-indent:-.25in;}
+
+@list l12
+
+	{mso-list-id:359473486;
+
+	mso-list-template-ids:-414688538;}
+
+@list l12:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l13
+
+	{mso-list-id:438188329;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:1118107932 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l13:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l14
+
+	{mso-list-id:648023202;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-1583437160 -1466014728 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l14:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;
+
+	mso-fareast-font-family:Calibri;}
+
+@list l15
+
+	{mso-list-id:755328914;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:921468214 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l15:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l16
+
+	{mso-list-id:860313564;
+
+	mso-list-template-ids:-13989816;}
+
+@list l16:level1
+
+	{mso-level-number-format:bullet;
+
+	mso-level-text:\F0B7;
+
+	mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;
+
+	mso-ansi-font-size:10.0pt;
+
+	font-family:Symbol;}
+
+@list l17
+
+	{mso-list-id:987441570;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-1314477100 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l17:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l18
+
+	{mso-list-id:1023017081;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-1563536162 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l18:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l19
+
+	{mso-list-id:1517184045;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-696991626 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l19:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l20
+
+	{mso-list-id:1559513449;
+
+	mso-list-template-ids:727739484;}
+
+@list l20:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l21
+
+	{mso-list-id:1589733325;
+
+	mso-list-template-ids:-146885552;}
+
+@list l21:level1
+
+	{mso-level-tab-stop:.5in;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+@list l22
+
+	{mso-list-id:1920947538;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-1054301546 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l22:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	margin-left:.25in;
+
+	text-indent:-.25in;}
+
+@list l23
+
+	{mso-list-id:1972903640;
+
+	mso-list-type:hybrid;
+
+	mso-list-template-ids:-461322308 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+
+@list l23:level1
+
+	{mso-level-tab-stop:none;
+
+	mso-level-number-position:left;
+
+	text-indent:-.25in;}
+
+ol
+
+	{margin-bottom:0in;}
+
+ul
+
+	{margin-bottom:0in;}
+
+body,td,th {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.style5 {font-family: Arial, Helvetica, sans-serif; font-size: 12pt; }
+
+.style6 {font-size: 12pt}
+
+div.MsoNormal1 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+li.MsoNormal1 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+p.MsoNormal1 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+div.MsoNormal2 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+li.MsoNormal2 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+p.MsoNormal2 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+.style7 {font-family: "Courier New", Courier, monospace}
+
+.style8 {
+
+	font-size: 10pt;
+
+	font-family: "Courier New", Courier, monospace;
+
+}
+
+div.MsoNormal3 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+li.MsoNormal3 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+p.MsoNormal3 {mso-style-parent:"";
+
+	margin-top:0in;
+
+	margin-right:0in;
+
+	margin-bottom:10.0pt;
+
+	margin-left:0in;
+
+	line-height:normal;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12pt;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	mso-fareast-font-family:Calibri;
+
+	mso-bidi-font-family:"Times New Roman";}
+
+.style10 {
+
+	font-family: Arial;
+
+	font-size: 12.0pt;
+
+}
+
+-->
+
+</style>
+
+<!--[if gte mso 10]>
+
+<style>
+
+ /* Style Definitions */
+
+ table.MsoNormalTable
+
+	{mso-style-name:"Table Normal";
+
+	mso-tstyle-rowband-size:0;
+
+	mso-tstyle-colband-size:0;
+
+	mso-style-noshow:yes;
+
+	mso-style-parent:"";
+
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+
+	mso-para-margin:0in;
+
+	mso-para-margin-bottom:.0001pt;
+
+	mso-pagination:widow-orphan;
+
+	font-size:10.0pt;
+
+	font-family:Calibri;
+
+	mso-ansi-language:#0400;
+
+	mso-fareast-language:#0400;
+
+	mso-bidi-language:#0400;}
+
+</style>
+
+<![endif]--><!--[if gte mso 9]><xml>
+
+ <o:shapelayout v:ext="edit">
+
+  <o:idmap v:ext="edit" data="1"/>
+
+ </o:shapelayout></xml><![endif]-->
+
+</head>
+
+
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+
+
+<div class=Section1>
+
+
+
+<h2><span style='font-family:Arial'><a href="http://www.cs.columbia.edu/graphics/courses/csw4170">COMS W4170</a>: User Interface Design&#8212;Fall 2013</span></h2>
+
+
+
+<h4><span style='font-family:Arial'>Prof. Steven Feiner<br>
+
+Date out: November 4, 2013 <br>
+
+Date due: November 19, 2013</span></h4>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+
+<h4><span style='font-family:Arial'>Assignment 3: A Gestural Video Player</span></h4><p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><o:p>&nbsp;</o:p></p>
+
+
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>Your third assignment is designed to make you feel  more comfortable with 
+HTML5 and JavaScript<span class=SpellE>, while giving you a chance to demonstrate what you have learned about user interface design</span>.</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>You will be designing, building, and documenting, by yourself, an 
+application that uses one of the gesture recognizers that is referenced on the 
+webpage for the
+<a href="http://depts.washington.edu/aimgroup/proj/dollar/">$1 unistroke gesture 
+recognizer</a>. Your application will be a video player whose functionality is 
+provided by the HTML5 &lt;video&gt; element.&nbsp;User interaction with your player 
+should be done entirely by gestures (i.e., without the need for buttons, 
+sliders, keyboards, or the controls attribute). You should support 
+play, pause, seek (i.e., setting the currentTime attribute), and control of the 
+playbackRate, volume, muted, width, and height attributes. Interaction with your 
+video player should be performed 
+using gestures whose templates you define yourself (instead of 
+using the set of templates defined in the original source code for the recognizer 
+you have chosen). Note that you are welcome to treat the 
+template set you define as complete (i.e., you do not have to support creation 
+of templates by your user). You are welcome to hardcode a single video into your 
+application and you do <i>not</i> need to save the results of using your 
+application (i.e., your application can start up the same way each time, and 
+does not need to delete or modify anything in your file system).</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>Each gesture recognizer's web page has a link to the JavaScript code for 
+the recognizer and a live demo. Thus, you not need to code the recognition 
+algorithm yourself, and the JavaScript demo embedded in each recognizer's web 
+page provides an example of how to use the HTML5 &lt;canvas&gt; element to create an 
+input area. You can find a &quot;cheat sheet&quot; comparing the different gesture 
+recognizers in Table 2 of the
+<a href="http://faculty.washington.edu/wobbrock/pubs/icmi-12.pdf" style="color: blue; text-decoration: underline; text-underline: single">
+<i>ICMI 2012</i> paper on the $P recognizer</a>.</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span class="MsoNormal" style='font-family:Arial'>While we have provided 
+you with a set of functional requirements for this assignment, <b>a major component of the grading process will be
+
+our heuristic analysis of your design, and implemented application, focusing on usability.</b></span>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>
+
+<font face="Arial"><b>We will grade your assignment in the current version of 
+Chrome. To avoid Browser incompatibility issues, please make sure that you 
+develop and test your assignment in Chrome, using at least version 30.</b> (As 
+minor examples of browser-specific differences, in the top-level demo code on 
+the recognizer web pages, zooming, resizing, or scrolling the page causes strokes to be 
+drawn at an offset in Chrome 30 under Windows, while only zooming and resizing 
+cause this problem in IE 10 under Windows. Audio playback at speeds other 1.0 is 
+significantly distorted in IE 10 as compared with Chrome 30. Since there may be 
+other more significant differences that will affect how your application 
+performs. please use Chrome.)</font> </p>
+
+
+
+<h3 class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'><span style="font-family: Arial">Design</span></h3>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>You 
+
+should begin by playing with the recognizer you choose to get an idea of the kind of performance you 
+might expect from it. Do the gestures you want to use feel right? Can you get 
+the recognizer to perform well with them? Then, 
+
+start <span style='font-family:Arial'>thinking about possible ideas and trying 
+
+them out by using some of the lo-<span class=SpellE>fi</span>
+
+  prototyping techniques discussed in class and used in Assignment 2. In other words, you should
+
+  sketch out and explore your ideas <i>before</i> you begin coding!</span></p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style='font-family:Arial'>&nbsp;</span></p>
+
+
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>
+
+<span style="font-family: Arial">Do try</span><span style='font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+
+"Times New Roman"'> to make it as easy as you can for a computer-knowledgeable 
+user who has never seen your application before to be able to determine quickly how 
+to use it, even if you accomplish that by referring your user to online 
+documentation when they first run your application.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><font size="4"><b><span style="font-family: Arial">Documentation</span></b></font></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style="font-family: Arial">As part of your submission, you should 
+
+include a pdf file with embedded images that</span></p>
+
+<ul>
+
+	<li>
+
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style="font-family: Arial">Documents your design and 
+
+	explains how it developed, using images of your initial sketches or paper 
+
+	prototypes.</span></p></li>
+
+	<li>
+
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style="font-family: Arial">Explains what your application 
+	does and how to use it, 
+
+	using screenshots.</span></p></li>
+
+	<li>
+
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style="font-family: Arial">Justifies your user interface design decisions.</span></p></li>
+
+</ul>
+
+</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><span style="font-family: Arial">Please pay special attention to that 
+last bullet item!</span></p>
+
+
+
+<h3 class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'><b><span style='font-size:13.5pt;font-family:Arial;
+
+mso-fareast-font-family:"Times New Roman"'>Submission</span></b></h3>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'>Please create a .zip file named X_assn3.zip, where 
+&quot;X&quot; is your UNI.&nbsp; This file should contain:</p>
+<ol>
+	<li>
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'>A folder that includes everything related to your 
+	web page, including any of your images that are local files.</p></li>
+	<li>
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'>The pdf file for your documentation.</p></li>
+	<li>
+	<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal;mso-outline-level:3'>A README file that contains (a) your name, UNI, and 
+	email address, (b) an explanation of any special instructions for running 
+	your application. </p></li>
+</ol>
+
+
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal; mso-outline-level:3'>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal; mso-outline-level:3'>Now you're ready to submit, using CourseWorks, in 
+response to the assignment &quot;Assignment#3&quot;.</p>
+<h3 class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+
+normal'><b>
+<span style='font-size:13.5pt;font-family:Arial;mso-fareast-font-family:
+
+"Times New Roman"'>Hints<o:p></o:p></span></b></h3>
+
+<p class="MsoNormal" style="margin-bottom: 0in">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">You can learn about the &lt;video&gt; element and its API by trying 
+a <a href="http://www.w3.org/2010/05/video/mediaevents.html">demonstration</a> 
+(be sure to look at its source code) 
+and reading a
+<a href="http://www.w3.org/community/webed/wiki/HTML/Elements/video">description</a>.</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">You should use the <b><i>JavaScript</i></b> code for the 
+recognizer you choose, not any of the linked code in any other language!</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">Think about whether you want your canvas to be separate from 
+the video player, cover the video player, or even cover the entire window.</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">Please use your judgment (and justify your decision in your 
+documentation) as to the precision with which you allow the user to determine the value of 
+an attribute, and whether it is set to an absolute value or modified relative to 
+its current value.</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">When deciding which gesture recognizer to use, please take 
+into account that the points you read in from the mouse are also available for 
+you to process in your own code. You can compute your own information about a 
+gesture while you are accumulating a stroke to send 
+to the recognizer, or after you have accumulated the stroke, or even after you 
+have performed gesture recognition.&nbsp; For example, you could base your decision about what action 
+to perform on factors such as where a gesture begins or ends, or the direction in which its 
+first or last few points are drawn, in addition to the template match returned 
+by the recognizer.</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+<font face="Arial">If you decide to use a multistroke recognizer, you can use 
+information that you compute yourself from the points on a stroke, or use a 
+timeout, to determine whether you will allow the user to enter additional 
+strokes before performing recognition. This could be a nice alternative to an 
+explicit trigger to invoke recognition, such as a right mouse click.</font></p>
+<p class="MsoNormal" style="margin-bottom: 0in">
+
+&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+
+
+</body>
+
+
+
+</html>
+
