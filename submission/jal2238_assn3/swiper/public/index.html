@@ -1,0 +1,492 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Swiper</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Used FontAwesome for my icons. -->
+  <!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Scripts -->
+  <!-- js imports -->
+  <!-- <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script> -->
+  <script type="text/javascript" src="js/vendor/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
+  <script type="text/javascript" src="js/canvas.text.js"></script>
+  <script type="text/javascript" src="js/gentilis-normal-normal.js"></script>
+  <script type="text/javascript" src="js/dollar.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript"><!--
+      //
+    // Startup
+    //
+    var _isDown, _points, _r, _g, _rc;
+    function onLoadEvent()
+    {
+      _points = new Array();
+      _r = new DollarRecognizer();
+
+      var canvas = document.getElementById('myCanvas');
+      _g = canvas.getContext('2d');
+      _g.fillStyle = "rgb(0,0,225)";
+      _g.strokeStyle = "rgb(0,0,225)";
+      _g.lineWidth = 3;
+      _g.font = "16px Gentilis";
+      _rc = getCanvasRect(canvas); // canvas rect on page
+      _g.fillStyle = "rgb(255,255,255)";
+      _g.fillRect(0, 0, _rc.width, 20);
+
+      _isDown = false;
+    }
+    function getCanvasRect(canvas)
+    {
+      var w = canvas.width;
+      var h = canvas.height;
+
+      var cx = canvas.offsetLeft;
+      var cy = canvas.offsetTop;
+      while (canvas.offsetParent != null)
+      {
+        canvas = canvas.offsetParent;
+        cx += canvas.offsetLeft;
+        cy += canvas.offsetTop;
+      }
+      return {x: cx, y: cy, width: w, height: h};
+    }
+    function getScrollY()
+    {
+      var scrollY = 0;
+      if (typeof(document.body.parentElement) != 'undefined')
+      {
+        scrollY = document.body.parentElement.scrollTop; // IE
+      }
+      else if (typeof(window.pageYOffset) != 'undefined')
+      {
+        scrollY = window.pageYOffset; // FF
+      }
+      return scrollY;
+    }
+    //
+    // Mouse Events
+    //
+    function mouseDownEvent(x, y)
+    {
+      document.onselectstart = function() { return false; } // disable drag-select
+      document.onmousedown = function() { return false; } // disable drag-select
+      _isDown = true;
+      x -= _rc.x;
+      y -= _rc.y - getScrollY();
+      if (_points.length > 0)
+        _g.clearRect(0, 0, _rc.width, _rc.height);
+      _points.length = 1; // clear
+      _points[0] = new Point(x, y);
+      drawText("Recording unistroke...");
+      // _g.fillRect(x - 4, y - 3, 9, 9);
+    }
+    function mouseMoveEvent(x, y)
+    {
+      if (_isDown)
+      {
+        x -= _rc.x;
+        y -= _rc.y - getScrollY();
+        _points[_points.length] = new Point(x, y); // append
+        // drawConnectedPoint(_points.length - 2, _points.length - 1);
+      }
+    }
+    function mouseUpEvent(x, y)
+    {
+      document.onselectstart = function() { return true; } // enable drag-select
+      document.onmousedown = function() { return true; } // enable drag-select
+      if (_isDown)
+      {
+        _isDown = false;
+        if (_points.length >= 10)
+        {
+          // var result = _r.Recognize(_points, document.getElementById('useProtractor').checked);
+          var result = _r.Recognize(_points);
+          // Unused gestures
+          // I need to inlcude them for the recognizer to work properly, but
+          // I alert the user that they aren't valid gestures supported by my
+          // program.
+          if(result.Name == "triangle"
+            || result.Name == "x"
+            || result.Name == "zig-zag"
+            || result.Name == "arrow"
+            || result.Name == "left square bracket"
+            || result.Name == "right square bracket"
+            || result.Name == "delete"
+            || result.Name == "left curly brace"
+            || result.Name == "right curly brace"
+            || result.Name == "star"
+            || result.Name == "pigtail") {
+            result.Name = "Invalid Gesture"
+          }
+
+          // Checking if video is playing or paused
+          if(result.Name == "check") {
+            if (myVideo.paused) {
+              result.Name = "Play";
+            }
+            else {
+              result.Name = "Paused";
+            }
+          }
+
+          // Muted vs Unmuted
+          if(result.Name == "circle") {
+            if (myVideo.muted) {
+              result.Name = "Unmuted";
+            }
+            else {
+              result.Name = "Muted";
+            }
+          }
+
+          // Volume Up
+          if(result.Name == "caret") {
+            if(myVideo.volume == 1.0)
+            {
+              result.Name = "Volume at 100%"
+            }
+            else
+            {
+              result.Name = "Volume Up"
+            }
+          }
+          // Volume Down
+          if(result.Name == "v") {
+            if(myVideo.volume < 0.1)
+            {
+              result.Name = "Volume at 0%"
+            }
+            else
+            {
+              result.Name = "Volume Down"
+            }
+          }
+
+          // Increase Playback Speed
+          if(result.Name == "UP") {
+            result.Name = "Speed Up"
+          }
+
+          // Decrease Playback Speed
+          if(result.Name == "DN") {
+            result.Name = "Speed Down"
+          }
+
+          // Fast Forward
+          if(result.Name == "FF") {
+            result.Name = "FF 10 sec"
+          }
+
+          // Rewind
+          if(result.Name == "REW") {
+            result.Name = "REW 10 sec"
+          }
+
+          // Resize
+          if(result.Name == "rectangle") {
+            if(myVideo.width == 320) {
+              result.Name = "Increased Video Size"
+            }
+            else {
+              result.Name = "Decreased Video Size"
+            };
+          }
+
+          // drawText("Result: " + result.Name + " (" + round(result.Score,2) + ").");
+          drawText(result.Name);
+          // TEST!!
+          if(result.Name == "Play"
+            || result.Name == "Paused")
+          {
+            playPause();
+          }
+
+          if(result.Name == "Muted"
+            || result.Name == "Unmuted")
+          {
+            mute();
+          }
+
+          if(result.Name == 'Volume Up')
+          {
+            volUp();
+          }
+
+          if(result.Name == 'Volume Down')
+          {
+            volDown();
+          }
+
+          if(result.Name == "Increased Video Size"
+            || result.Name == "Decreased Video Size") {
+            resize()
+          }
+
+          if(result.Name == "REW 10 sec") {
+            rewTenSec();
+          }
+
+          if(result.Name == "FF 10 sec") {
+            ffTenSec();
+          }
+
+          if(result.Name == "Speed Up") {
+            increaseSpeed();
+          }
+
+          if(result.Name == "Speed Down") {
+            decreaseSpeed();
+          }
+
+        }
+        else // fewer than 10 points were inputted
+        {
+          drawText("Too few points made. Please try again.");
+        }
+      }
+    }
+    function drawText(str)
+    {
+      //Color top (yellow box)
+      //now white
+      _g.fillStyle = "rgb(255,255,255)";
+      _g.fillRect(0, 0, _rc.width, 20);
+      _g.fillStyle = "rgb(0,0,0)";
+      _g.fillText(str, 1, 14);
+    }
+    //This is where the gesture trail is generated
+    function drawConnectedPoint(from, to)
+    {
+      _g.beginPath();
+      _g.moveTo(_points[from].X, _points[from].Y);
+      _g.lineTo(_points[to].X, _points[to].Y);
+      _g.closePath();
+      _g.stroke();
+    }
+    function round(n, d) // round 'n' to 'd' decimals
+    {
+      d = Math.pow(10, d);
+      return Math.round(n * d) / d
+    }
+    //
+    // Unistroke Adding and Clearing
+    //
+    function onClickAddExisting()
+    {
+      if (_points.length >= 10)
+      {
+        var unistrokes = document.getElementById('unistrokes');
+        var name = unistrokes[unistrokes.selectedIndex].value;
+        var num = _r.AddGesture(name, _points);
+        drawText("\"" + name + "\" added. Number of \"" + name + "\"s defined: " + num + ".");
+      }
+    }
+    function onClickAddCustom()
+    {
+      var name = document.getElementById('custom').value;
+      if (_points.length >= 10 && name.length > 0)
+      {
+        var num = _r.AddGesture(name, _points);
+        drawText("\"" + name + "\" added. Number of \"" + name + "\"s defined: " + num + ".");
+      }
+    }
+    function onClickCustom()
+    {
+      document.getElementById('custom').select();
+    }
+    function onClickDelete()
+    {
+      var num = _r.DeleteUserGestures(); // deletes any user-defined unistrokes
+      alert("All user-defined gestures have been deleted. Only the 1 predefined gesture remains for each of the " + num + " types.");
+    }
+
+    // Getting the current and total time attributes
+    // moved to main.js
+    // End
+
+  // -->
+  </script>
+</head>
+<body onload="onLoadEvent()">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" rel="home" href="#" title="Swiper"><img style="max-width:50px; margin-top: -7px;" src="images/swiper-thumb.jpg">
+          </a>
+  </div>
+        <!-- <a class="navbar-brand" href="#">Swiper</a> -->
+      </div>
+    </nav>
+  <div class="main">
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>
+        Swiper
+      </h1>
+      <p>
+        No Typing, Just Swiping
+      </p>
+    </div>
+  </div>
+  <div class="video">
+  <!-- <video id="video1" width="320" height="240"> -->
+    <video id="video1" width="320">
+    <source src="police.mp4" type="video/mp4">
+    <!-- <source src="reruns.mp4" type="video/mp4"> -->
+    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+    <!-- ogg movie support required? -->
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="canvas">
+    <!-- <canvas id="myCanvas" width="420" height="400" style="background-color:#dddddd" -->
+    <canvas id="myCanvas" width="480" height="360"
+                    onmousedown="mouseDownEvent(event.clientX, event.clientY)"
+                    onmousemove="mouseMoveEvent(event.clientX, event.clientY)"
+                    onmouseup="mouseUpEvent(event.clientX, event.clientY)"
+                    oncontextmenu="return false;">
+                  <span style="background-color:#ffff88;">The &lt;canvas&gt; element is not supported by this browser.</span>
+                </canvas>
+  </div>
+  <!-- Time attributes -->
+  <div>Current Time : <span  id="currentTime">0</span></div>
+  <div>Total Time : <span id="totalTime">0</span></div>
+</div>
+
+  <div class="debug">
+    <h1>Gestures</h1>
+    <img src="gestures.png">
+</div> 
+
+<script> 
+var myVideo=document.getElementById("video1"); 
+
+function playPause()
+{ 
+if (myVideo.paused) 
+  myVideo.play(); 
+else 
+  myVideo.pause(); 
+} 
+
+function increaseWidth()
+{ 
+  myVideo.width+=10; 
+} 
+
+function decreaseWidth()
+{ 
+  myVideo.width-=10; 
+} 
+
+function makeNormal()
+{ 
+  myVideo.width=320;
+  // myVideo.height=240;
+  // console.log("reverting to 320px x 240px")
+} 
+
+function increaseHeight()
+{ 
+  myVideo.height+=10; 
+  // myVideo.width=auto;
+} 
+
+function decreaseHeight()
+{ 
+  myVideo.height-=10; 
+} 
+
+function mute()
+{ 
+  if(myVideo.muted)
+    myVideo.muted=false;
+  else
+    myVideo.muted=true;
+}
+
+function decreaseSpeed()
+{ 
+  myVideo.playbackRate-=0.1; 
+} 
+
+function normalSpeed()
+{ 
+  myVideo.playbackRate=1.0; 
+} 
+
+function increaseSpeed()
+{ 
+  myVideo.playbackRate+=0.1; 
+} 
+// Working now
+function ffTenSec()
+{ 
+  myVideo.currentTime+=10;
+} 
+
+function rewTenSec()
+{
+  myVideo.currentTime-=10;
+}
+
+function volUp()
+{
+  if(myVideo.volume == 1.0)
+  {
+    // console.log("Volume already at max value! (1.0)")
+  } else
+  {
+  myVideo.volume+=0.1;
+  // console.log("myVideo.volume+=0.1");
+  // console.log("curent volume: " + myVideo.volume);
+  }
+}
+
+function volDown()
+{
+  if(myVideo.volume < 0.1)
+  {
+    // console.log("Volume already at min value! (0.0)")
+  } else
+  {
+  myVideo.volume-=0.1;
+  // console.log("myVideo.volume-=0.1");
+  // console.log("curent volume: " + myVideo.volume);
+  }
+}
+
+function resize()
+{
+  if(myVideo.width == 320) {
+    myVideo.width = 480;
+  } else
+  {
+    myVideo.width = 320;
+  }
+}
+
+function getCurrentTime()
+{
+  var currentTime;
+  currentTime = myVideo.currentTime;
+}
+
+</script> 
+</body> 
+</html>

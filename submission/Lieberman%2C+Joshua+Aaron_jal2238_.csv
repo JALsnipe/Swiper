@@ -1,0 +1,37 @@
+Student Name,Lieberman, Joshua Aaron,jal2238
+Total Grade,87.5
+
+,,Grade,of Possible
+Functionality
+,Video,8,8
+,Recognizer,8,8
+,Bonus,0,0
+,Subtotal,16,16
+Video Controls
+,Play/Pause,2,2
+,Seek,2,2
+,PlaybackRate,2,2
+,Volume,2,2
+,Muted,2,2
+,Width/Height,2,2
+,Bonus,0,0
+,Subtotal,12,12
+Gestures
+,Create,5,5
+,Design,5,5
+,Bonus,0,0
+,Subtotal,10,10
+UI Evaluation
+,Style,5.5,7
+,Layout,5.5,7
+,Explicit,5.5,7
+,Docs & Help,4,7
+,Consistency,7,7
+,Visibility,3,7
+,Bonus,0,0
+,Subtotal,30.5,42
+Write-up / Explaination
+,Design,5,5
+,How-To,10,10
+,Decisions,4,5
+,Subtotal,19,20
